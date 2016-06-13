@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/style.css">
+        <title dynamic-title>Personal Website</title>
+    </head>
+    <body>
+        <ui-view></ui-view>
+
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <script src="app/app.module.js"></script>
+        <script src="app/app.config.js"></script>
+
+        <script src="app/layout/main.component.js"></script>
+        <script src="app/layout/header.component.js"></script>
+
+        <script src="app/home/home.component.js"></script>
+        <script src="app/login/login.component.js"></script>
+    </body>
+</html>
