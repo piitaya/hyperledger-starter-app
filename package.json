@@ -1,0 +1,27 @@
+{
+  "name": "hyperledger-start-app-server",
+  "version": "1.0.0",
+  "description": "Hyperledger Starter App\r This is the start of to trying to create a node.js and Node-Red starter kit app.\r Any contributions appreciated.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piitaya/hyperledger-starter-app.git"
+  },
+  "author": "Paul Bottein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piitaya/hyperledger-starter-app/issues"
+  },
+  "homepage": "https://github.com/piitaya/hyperledger-starter-app#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "shortid": "^2.2.6"
+  }
+}
