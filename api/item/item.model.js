@@ -16,7 +16,7 @@ function Item(item) {
     }
 
     // Attributes for item object
-    this.id                 = shortid.generate();
+    this.id                 = item.id || shortid.generate();
     this.name               = item.name;
     this.price              = item.price;
     this.creationDate       = item.creationDate || new Date();
