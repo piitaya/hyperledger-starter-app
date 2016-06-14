@@ -1,0 +1,177 @@
+{
+    "credentials": {
+        "peers": [
+            {
+                "discovery_host": "301d7364-e100-4bca-80fc-bc273eab97b2_vp1-discovery.blockchain.ibm.com",
+                "discovery_port": 30303,
+                "api_host": "301d7364-e100-4bca-80fc-bc273eab97b2_vp1-api.blockchain.ibm.com",
+                "api_port_tls": 443,
+                "api_port": 80,
+                "type": "peer",
+                "network_id": "301d7364-e100-4bca-80fc-bc273eab97b2",
+                "container_id": "d7427c228ecdb27eb7eb6518cb603706cdb055b3603afa0eff52c821649aad2f",
+                "id": "301d7364-e100-4bca-80fc-bc273eab97b2_vp1",
+                "api_url": "http://301d7364-e100-4bca-80fc-bc273eab97b2_vp1-api.blockchain.ibm.com:80"
+            },
+            {
+                "discovery_host": "301d7364-e100-4bca-80fc-bc273eab97b2_vp2-discovery.blockchain.ibm.com",
+                "discovery_port": 30303,
+                "api_host": "301d7364-e100-4bca-80fc-bc273eab97b2_vp2-api.blockchain.ibm.com",
+                "api_port_tls": 443,
+                "api_port": 80,
+                "type": "peer",
+                "network_id": "301d7364-e100-4bca-80fc-bc273eab97b2",
+                "container_id": "2c07c048bc474d7bc5d23018fe599f392e18893fdc153118ab2042dcbcead158",
+                "id": "301d7364-e100-4bca-80fc-bc273eab97b2_vp2",
+                "api_url": "http://301d7364-e100-4bca-80fc-bc273eab97b2_vp2-api.blockchain.ibm.com:80"
+            }
+        ],
+        "ca": {
+            "301d7364-e100-4bca-80fc-bc273eab97b2_ca": {
+                "url": "301d7364-e100-4bca-80fc-bc273eab97b2_ca-api.blockchain.ibm.com:30303",
+                "discovery_host": "301d7364-e100-4bca-80fc-bc273eab97b2_ca-discovery.blockchain.ibm.com",
+                "discovery_port": 30303,
+                "api_host": "301d7364-e100-4bca-80fc-bc273eab97b2_ca-api.blockchain.ibm.com",
+                "api_port_tls": 30303,
+                "api_port": 80,
+                "type": "ca",
+                "network_id": "301d7364-e100-4bca-80fc-bc273eab97b2",
+                "container_id": "de1e98b6e09cd829199a9d8967fc612400c5ead90a17fb39cec1b4ffa1781663"
+            }
+        },
+        "users": [
+            {
+                "username": "dashboarduser_type0_06923fd0ca",
+                "secret": "d6de294ed1",
+                "enrollId": "dashboarduser_type0_06923fd0ca",
+                "enrollSecret": "d6de294ed1"
+            },
+            {
+                "username": "dashboarduser_type0_050eab2d9a",
+                "secret": "e4c02e3285",
+                "enrollId": "dashboarduser_type0_050eab2d9a",
+                "enrollSecret": "e4c02e3285"
+            },
+            {
+                "username": "user_type1_44bf7ff6b8",
+                "secret": "19b922b114",
+                "enrollId": "user_type1_44bf7ff6b8",
+                "enrollSecret": "19b922b114"
+            },
+            {
+                "username": "user_type1_1bdc8e8ed3",
+                "secret": "0d28f34499",
+                "enrollId": "user_type1_1bdc8e8ed3",
+                "enrollSecret": "0d28f34499"
+            },
+            {
+                "username": "user_type1_ed2bd26f69",
+                "secret": "fc4fcb73a6",
+                "enrollId": "user_type1_ed2bd26f69",
+                "enrollSecret": "fc4fcb73a6"
+            },
+            {
+                "username": "user_type1_892716e173",
+                "secret": "11d62549cc",
+                "enrollId": "user_type1_892716e173",
+                "enrollSecret": "11d62549cc"
+            },
+            {
+                "username": "user_type1_a5cf01715b",
+                "secret": "806529e349",
+                "enrollId": "user_type1_a5cf01715b",
+                "enrollSecret": "806529e349"
+            },
+            {
+                "username": "user_type2_a225b9eeb4",
+                "secret": "e100e30cc7",
+                "enrollId": "user_type2_a225b9eeb4",
+                "enrollSecret": "e100e30cc7"
+            },
+            {
+                "username": "user_type2_8f11f3a3cb",
+                "secret": "07d6173af3",
+                "enrollId": "user_type2_8f11f3a3cb",
+                "enrollSecret": "07d6173af3"
+            },
+            {
+                "username": "user_type2_be5edbb869",
+                "secret": "aeda38410c",
+                "enrollId": "user_type2_be5edbb869",
+                "enrollSecret": "aeda38410c"
+            },
+            {
+                "username": "user_type2_aa9a0b2d6a",
+                "secret": "5847cd5379",
+                "enrollId": "user_type2_aa9a0b2d6a",
+                "enrollSecret": "5847cd5379"
+            },
+            {
+                "username": "user_type2_c4e3a7539b",
+                "secret": "6d4caf56db",
+                "enrollId": "user_type2_c4e3a7539b",
+                "enrollSecret": "6d4caf56db"
+            },
+            {
+                "username": "user_type4_936979752e",
+                "secret": "88599f15e9",
+                "enrollId": "user_type4_936979752e",
+                "enrollSecret": "88599f15e9"
+            },
+            {
+                "username": "user_type4_507a47aca7",
+                "secret": "1c566e5ebb",
+                "enrollId": "user_type4_507a47aca7",
+                "enrollSecret": "1c566e5ebb"
+            },
+            {
+                "username": "user_type4_0fb1cf0d97",
+                "secret": "737e8ba826",
+                "enrollId": "user_type4_0fb1cf0d97",
+                "enrollSecret": "737e8ba826"
+            },
+            {
+                "username": "user_type4_c75d84c45f",
+                "secret": "964d5de733",
+                "enrollId": "user_type4_c75d84c45f",
+                "enrollSecret": "964d5de733"
+            },
+            {
+                "username": "user_type4_ad914e8f4c",
+                "secret": "8be52705bd",
+                "enrollId": "user_type4_ad914e8f4c",
+                "enrollSecret": "8be52705bd"
+            },
+            {
+                "username": "user_type8_87e68b78a9",
+                "secret": "24a26c86f4",
+                "enrollId": "user_type8_87e68b78a9",
+                "enrollSecret": "24a26c86f4"
+            },
+            {
+                "username": "user_type8_90e23ac37a",
+                "secret": "0be0724574",
+                "enrollId": "user_type8_90e23ac37a",
+                "enrollSecret": "0be0724574"
+            },
+            {
+                "username": "user_type8_fa44169d06",
+                "secret": "36aeafc9bf",
+                "enrollId": "user_type8_fa44169d06",
+                "enrollSecret": "36aeafc9bf"
+            },
+            {
+                "username": "user_type8_f01f84b2d4",
+                "secret": "12c041fa75",
+                "enrollId": "user_type8_f01f84b2d4",
+                "enrollSecret": "12c041fa75"
+            },
+            {
+                "username": "user_type8_871f8ce4f9",
+                "secret": "f4428348ff",
+                "enrollId": "user_type8_871f8ce4f9",
+                "enrollSecret": "f4428348ff"
+            }
+        ]
+    }
+}

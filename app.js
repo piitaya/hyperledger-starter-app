@@ -6,6 +6,11 @@ var bodyParser = require('body-parser');
 var path          = require('path');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
+var blockchain = require('./blockchain');
+
+blockchain.init().then(function() {
+    console.log('Blockchain deployed!')
+});
 
 // Create Express server.
 var app = express();

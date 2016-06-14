@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/piitaya/hyperledger-starter-app#readme",
   "dependencies": {
+    "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
+    "ibm-blockchain-js": "^1.2.3",
     "morgan": "^1.7.0",
     "path": "^0.12.7",
     "shortid": "^2.2.6"
