@@ -6,9 +6,9 @@ var Promise = require("bluebird");
 var ibc = new IBMBlockchain();
 
 var blockchain = module.exports = {
-   init: init,
-   chaincode: {},
-   ibc: ibc
+    init: init,
+    chaincode: {},
+    ibc: ibc
 };
 
 function init() {
