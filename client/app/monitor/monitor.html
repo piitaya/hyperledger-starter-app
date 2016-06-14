@@ -1,8 +1,7 @@
 <div class="monitor-bar" ng-class="vm.open ? 'opened' : ''" ng-click="vm.open = !vm.open">
-    <div class="block">1</div>
-    <div class="block">2</div>
-    <div class="block">3</div>
-    <div class="block">4</div>
-    <div class="block">5</div>
-    <div class="block">6</div>
+    <div layout="row" class="block-bar">
+        <div class="block" ng-repeat="item in vm.items" flex="none">{{item}}</div>
+    </div>
+    <md-button class="md-icon-button" ng-click="vm.add($event)"><md-icon style="color: white;">add</md-icon></md-button>
+    <md-button class="md-icon-button" ng-click="vm.remove($event)"><md-icon style="color: white;">delete</md-icon></md-button>
 </div>
