@@ -1,3 +1,5 @@
+'use strict';
+
 var IBMBlockchain = require('ibm-blockchain-js');
 var fs = require('fs');
 var TAG = "Blockchain init:";
@@ -6,7 +8,7 @@ var Promise = require("bluebird");
 var ibc = new IBMBlockchain();
 var user_manager = require('./utils/users');
 
-var blockchain = module.exports = {
+var blockchain = {
     init: init,
     chaincode: {},
     ibc: ibc
@@ -80,9 +82,9 @@ function init() {
                     users: users
                 },
                 chaincode: {
-                    zip_url: 'https://github.com/IBM-Blockchain/cp-chaincode-v2/archive/master.zip',
-                    unzip_dir: 'cp-chaincode-v2-master/hyperledger',							    //subdirectroy name of chaincode after unzipped
-                    git_url: 'https://github.com/IBM-Blockchain/cp-chaincode-v2/hyperledger',		//GO get http url
+                    zip_url: 'https://github.com/piitaya/hyperledger-starter-chaincode/archive/master.zip',
+                    unzip_dir: 'hyperledger-starter-chaincode-master',							    //subdirectroy name of chaincode after unzipped
+                    git_url: 'https://github.com/piitaya/hyperledger-starter-chaincode',		//GO get http url
 
                     //hashed cc name from prev deployment
                     //deployed_name: '2450c95bc77e124c766ff650c2f4642e5c0bc2d576ee67db130900750cddc5982e295f320fd5dff7aca2f61fa7cc673fcdcc8a7464f94c68eeccdb14b2384a75'
@@ -122,6 +124,8 @@ function init() {
             } else {
                 user_manager.setup(ibc, blockchain.chaincode, ca, cb_deployed);
             }
+
+            console.log(blockchain.chaincode);
         }
 
         function cb_deployed(err, data) {
@@ -135,3 +139,5 @@ function init() {
     });
 
 };
+
+module.exports = blockchain;

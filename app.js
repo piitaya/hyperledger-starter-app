@@ -37,5 +37,6 @@ app.use('/api', router);
 
 router.use('/items', require('./api/item'));
 router.use('/auth', require('./api/auth'));
+router.use('/account', require('./api/account'));
 
 module.exports = app;
