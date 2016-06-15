@@ -4,6 +4,7 @@ var TAG = "Blockchain init:";
 var Promise = require("bluebird");
 
 var ibc = new IBMBlockchain();
+var user_manager = require('./utils/users');
 
 var blockchain = module.exports = {
     init: init,
@@ -104,12 +105,22 @@ function init() {
             else {
                 blockchain.chaincode = cc;
                 if (!cc.details.deployed_name || cc.details.deployed_name === "") {												//decide if i need to deploy
-                    cc.deploy('init', [], {save_path: './cc_summaries', delay_ms: 10000}, cb_deployed);
+                    cc.deploy('init', [], {save_path: './cc_summaries', delay_ms: 10000}, finalSetup);
                 }
                 else {
                     console.log('chaincode summary file indicates chaincode has been previously deployed');
-                    cb_deployed(null, "");
+                    finalSetup(null, "");
                 }
+            }
+        }
+
+        function finalSetup(err, data) {
+            if (err != null) {
+                //look at tutorial_part1.md in the trouble shooting section for help
+                console.log('! looks like a deploy error, holding off on the starting the socket\n', err);
+                if (!process.error) process.error = {type: 'deploy', msg: err.details};
+            } else {
+                user_manager.setup(ibc, blockchain.chaincode, ca, cb_deployed);
             }
         }
 

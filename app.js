@@ -36,5 +36,6 @@ var router = express.Router();
 app.use('/api', router);
 
 router.use('/items', require('./api/item'));
+router.use('/auth', require('./api/auth'));
 
 module.exports = app;
