@@ -1,6 +1,6 @@
 # hyperledger-starter-app
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://github.com/piitaya/hyperledger-starter-app.git)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/piitaya/hyperledger-starter-app.git)
 
 Hyperledger Starter App - Work in progress !
 
