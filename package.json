@@ -4,7 +4,8 @@
   "description": "Hyperledger Starter App\r This is the start of to trying to create a node.js and Node-Red starter kit app.\r Any contributions appreciated.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && npm install && cd .. && cd utils/loopback-connector-obcca && npm install"
   },
   "repository": {
     "type": "git",
