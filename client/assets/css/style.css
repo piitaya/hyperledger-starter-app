@@ -7,7 +7,7 @@ main {
 }
 
 .login-page md-card {
-    width: 300px; 
+    width: 300px;
 }
 
 .login-page .login-logo {
@@ -17,4 +17,14 @@ main {
 
 .login-page .login-logo img {
     width: 120px;
+}
+
+.login-page .submit-button {
+    text-align: right;
+}
+
+.login-page a.switch-link {
+    color: rgb(57,73,171);
+    font-size: 12pt;
+    text-decoration: none;
 }

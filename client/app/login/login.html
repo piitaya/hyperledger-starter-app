@@ -1,8 +1,7 @@
 <div layout="row" layout-align="center center" class="login-page">
-    <md-card ng-if="vm.mode == 'login'">
-        <md-card-content>
-            <form ng-submit="vm.login()">
-                <md-button ng-click="vm.switchMode()"><md-icon>add</md-icon></md-button>
+    <form ng-submit="vm.login()" ng-if="vm.mode == 'login'">
+        <md-card>
+            <md-card-content>
                 <div class="login-logo">
                     <img src="assets/img/hyperledger.png"></img>
                 </div>
@@ -15,15 +14,18 @@
                     <label>Password</label>
                     <input type="password" ng-model="vm.credentials.password">
                 </md-input-container>
-
-                <md-button class="md-raised md-primary" type="submit" >Sign in</md-button>
-            </form>
-        </md-card-content>
-   </md-card>
-   <md-card ng-if="vm.mode == 'register'">
-       <md-card-content>
-           <md-button ng-click="vm.switchMode()"><md-icon>close</md-icon></md-button>
-           <form ng-submit="vm.register()">
+                <div class="submit-button">
+                    <md-button class="md-raised md-primary" type="submit" >Sign in</md-button>
+                </div>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <a class="switch-link" href="" ng-click="vm.switchMode()">Don't have an account?</a>
+            </md-card-actions>
+        </md-card>
+    </form>
+    <form ng-submit="vm.register()" ng-if="vm.mode == 'register'">
+       <md-card>
+           <md-card-content>
                <div class="login-logo">
                    <img src="assets/img/hyperledger.png"></img>
                </div>
@@ -31,17 +33,13 @@
                    <label>Username</label>
                    <input type="text" ng-model="vm.credentials.username">
                </md-input-container>
-
-               <md-button class="md-raised md-primary" type="submit" >Sign up</md-button>
-           </form>
-       </md-card-content>
-  </md-card>
+               <div class="submit-button">
+                   <md-button class="md-block md-raised md-primary" type="submit" >Sign up</md-button>
+               </div>
+           </md-card-content>
+           <md-card-actions layout="row" layout-align="end center">
+               <a class="switch-link" href="" ng-click="vm.switchMode()">Return to login</a>
+           </md-card-actions>
+        </md-card>
+    </form>
 </div>
-<!-- <div>
-   <form ng-submit="vm.register()">
-       <label for="username">Username</label>
-       <input type="text" id="username" ng-model="vm.username" />
-
-       <button type="submit">Register</button>
-  </form>
-</div> -->

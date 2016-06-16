@@ -9,9 +9,9 @@
             controllerAs: "vm"
         });
 
-	LoginComponent.$inject = ["authService"];
+	LoginComponent.$inject = ["authService", "$state"];
 
-	function LoginComponent(authService) {
+	function LoginComponent(authService, $state) {
 		var vm = this;
 
 		vm.login = login;
@@ -30,6 +30,7 @@
 		function login() {
 			authService.login(vm.credentials.username, vm.credentials.password).then(function(data) {
 				console.log("res", data);
+				$state.go("main.home");
 			}).catch(function(err) {
 				console.log("err", err);
 			})
@@ -38,6 +39,7 @@
 		function register() {
 			authService.register(vm.credentials.username).then(function(data) {
 				console.log("res", data);
+				vm.mode = "login";
 			}).catch(function(err) {
 				console.log("err", err);
 			})
