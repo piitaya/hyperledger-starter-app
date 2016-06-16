@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	
+
 	angular
 		.module('app')
 		.component('login', {
@@ -9,12 +9,15 @@
             controllerAs: "vm"
         });
 
-	LoginComponent.$inject = [];
+	LoginComponent.$inject = ["authService"];
 
-	function LoginComponent() {
+	function LoginComponent(authService) {
 		var vm = this;
 
 		vm.login = login;
+		vm.register = register;
+		vm.credentials = {};
+		vm.username = undefined;
 
 		activate();
 
@@ -23,7 +26,19 @@
 		}
 
 		function login() {
-			console.log("login");
+			authService.login(vm.credentials.username, vm.credentials.password).then(function(data) {
+				console.log("res", data);
+			}).catch(function(err) {
+				console.log("err", err);
+			})
+		}
+
+		function register() {
+			authService.register(vm.username).then(function(data) {
+				console.log("res", data);
+			}).catch(function(err) {
+				console.log("err", err);
+			})
 		}
 	}
 })();

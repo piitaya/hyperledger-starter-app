@@ -5,27 +5,38 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <!-- Style dependencies -->
         <link rel="stylesheet" href="/node_modules/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- App style -->
         <link rel="stylesheet" href="/assets/css/style.css">
         <title>Hyperledger Starter App</title>
     </head>
     <body>
         <ui-view></ui-view>
 
+        <!-- Dependencies -->
         <script src="/node_modules/angular/angular.js"></script>
-    	  <script src="/node_modules/angular-aria/angular-aria.js"></script>
-    	  <script src="/node_modules/angular-animate/angular-animate.js"></script>
-    	  <script src="/node_modules/angular-material/angular-material.js"></script>
+    	<script src="/node_modules/angular-aria/angular-aria.js"></script>
+    	<script src="/node_modules/angular-animate/angular-animate.js"></script>
+    	<script src="/node_modules/angular-material/angular-material.js"></script>
         <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/node_modules/angular-jwt/dist/angular-jwt.js"></script>
 
+        <!-- App modules -->
         <script src="/app/app.module.js"></script>
         <script src="/app/app.config.js"></script>
 
+        <!-- Layout components -->
         <script src="/app/layout/main.component.js"></script>
         <script src="/app/layout/header.component.js"></script>
 
+        <!-- View components -->
         <script src="/app/home/home.component.js"></script>
         <script src="/app/login/login.component.js"></script>
+
+        <!-- Services -->
+        <script src="/app/services/auth.service.js"></script>
+        <script src="/app/services/account.service.js"></script>
     </body>
 </html>

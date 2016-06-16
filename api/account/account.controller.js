@@ -1,7 +1,8 @@
 'use strict';
 
 var Account = require('./account.model');
-var blockchain = require('../../blockchain')
+var blockchain = require('../../blockchain');
+
 /*
     Create account
     METHOD: POST
@@ -9,11 +10,10 @@ var blockchain = require('../../blockchain')
     Response:
         { account }
 */
-
 exports.create = function(req, res) {
     var account = new Account({
-        username: "username1",
-        money: 100
+        username: req.account.username,
+        money: 1000
     });
 
     blockchain.chaincode.invoke.createAccount([JSON.stringify(account)], function(err, data) {
@@ -34,9 +34,14 @@ exports.create = function(req, res) {
         [{ account }]
 */
 exports.get = function(req, res) {
-    blockchain.chaincode.query.getAccount(['username1'], function(err, data){
+
+    console.log(req.account.username);
+    blockchain.chaincode.query.getAccount([req.account.username], function(err, data) {
         if (err) {
             res.status(500).json({message: "Internal Error"});
+        }
+        else if (!data || data == "null") {
+            res.status(204).json({});
         }
         else {
             var account = new Account(JSON.parse(data));

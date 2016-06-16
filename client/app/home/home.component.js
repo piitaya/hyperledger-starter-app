@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	
+
 	angular
 		.module('app')
 		.component('home', {
@@ -9,15 +9,21 @@
 			controllerAs: "vm"
 		});
 
-	HomeComponent.$inject = [];
+	HomeComponent.$inject = ['accountService'];
 
-	function HomeComponent() {
+	function HomeComponent(accountService) {
 		var vm = this;
+
+		vm.account = {};
 
 		activate();
 
 		function activate() {
-
+			accountService.get().then(function(account) {
+				vm.account = account;
+			}).catch(function(err) {
+				console.log(err);
+			});
 		}
 	}
 })();

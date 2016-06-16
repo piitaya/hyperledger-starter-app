@@ -1,13 +1,13 @@
 (function () {
     'use strict';
-    
+
     angular
         .module('app')
         .config(config);
 
-    config.$inject = ["$urlRouterProvider", "$stateProvider", "$mdIconProvider", "$mdThemingProvider"];
+    config.$inject = ["$urlRouterProvider", "$stateProvider", "$httpProvider", "jwtInterceptorProvider", "$mdIconProvider", "$mdThemingProvider"];
 
-    function config($urlRouterProvider, $stateProvider, $mdIconProvider, $mdThemingProvider) {
+    function config($urlRouterProvider, $stateProvider, $httpProvider, jwtInterceptorProvider, $mdIconProvider, $mdThemingProvider) {
 
         // Material angular
         $mdIconProvider.defaultFontSet('material-icons');
@@ -15,6 +15,13 @@
         $mdThemingProvider.theme('default')
             .primaryPalette('indigo')
             .accentPalette('pink');
+
+        // Headers token
+        jwtInterceptorProvider.tokenGetter = function() {
+            return localStorage.token;
+        };
+
+        $httpProvider.interceptors.push('jwtInterceptor');
 
         // Routes
         $urlRouterProvider.otherwise(function($injector) {
@@ -33,7 +40,10 @@
 
             .state ('main', {
                 abstract: true,
-                component: 'main'
+                component: 'main',
+                data: {
+                    requiresLogin: true
+                }
             })
 
             .state('main.home', {
@@ -44,4 +54,20 @@
                 }
             });
     }
+
+    angular.module("app")
+        .run(run);
+
+    run.$inject = ['$transitions', 'authService'];
+
+    function run($transitions, authService) {
+        $transitions.onStart({}, function($state, $transition$) {
+            if ($transition$.$to().data && $transition$.$to().data.requiresLogin) {
+                if (!authService.isAuthenticated()) {
+                    $state.go("login");
+                 }
+            }
+        });
+    }
+
 })();

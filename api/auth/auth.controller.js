@@ -3,11 +3,16 @@
 var user_manager = require('../../utils/users');
 var jwt = require('jsonwebtoken');
 
-/**
- * Handles form posts for registering new users.
- * @param req The request containing the registration form data. {username: username}
- * @param res The response.
- */
+var SECRET = "mySecret";
+/*
+    Register to the app
+    METHOD: POST
+    URL: /api/auth/register
+    Parameters:
+        { username: username }
+    Response:
+        { username: username, password: password }
+*/
 exports.register = function(req, res) {
     var role = 1;
 
@@ -26,11 +31,15 @@ exports.register = function(req, res) {
     });
 }
 
-/**
- * Handles form posts for login requests.
- * @param req The request containing the login form data. {username: username, password: password}
- * @param res The response.
- */
+/*
+    Login to the app
+    METHOD: POST
+    URL: /api/auth/register
+    Parameters:
+        { username: username, password: password }
+    Response:
+        { token: token }
+*/
 exports.login = function(req, res) {
 
     var username = req.body.username;
@@ -51,8 +60,37 @@ exports.login = function(req, res) {
     });
 }
 
+exports.verify = function(req, res, next) {
+    // check header or url parameters or post parameters for token
+    var token;
+    var authorizationHeader = req.headers['authorization'];
+    if (authorizationHeader) {
+        token = req.headers['authorization'].split(" ")[1];
+    }
+
+    // decode token
+    if (token) {
+        // verifies secret and checks exp
+        jwt.verify(token, SECRET, function(err, decoded) {
+            if (err) {
+                return res.status(403).json({
+                    message: 'Failed to authenticate token.'
+                });
+            } else {
+                // if everything is good, save to request for use in other routes
+                req.account = decoded;
+                next();
+            }
+        });
+    } else {
+        return res.status(403).send({
+            message: 'No token provided.'
+        });
+    }
+}
+
 function generateToken(user) {
-    return jwt.sign(user, "mySecret", {
+    return jwt.sign(user, SECRET, {
         expiresIn: 24 * 60 * 60 // expires in 24 hours
     });
 }

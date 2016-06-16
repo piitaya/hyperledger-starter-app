@@ -1,11 +1,19 @@
 <div>
     <form ng-submit="vm.login()">
         <label for="username">Username</label>
-        <input type="text" id="username" ng-model="vm.username" />
+        <input type="text" id="username" ng-model="vm.credentials.username" />
 
         <label for="password">Password</label>
-        <input type="text" id="password" ng-model="vm.password" />
+        <input type="text" id="password" ng-model="vm.credentials.password" />
 
         <button type="submit">Login</button>
    </form>
+</div>
+<div>
+   <form ng-submit="vm.register()">
+       <label for="username">Username</label>
+       <input type="text" id="username" ng-model="vm.username" />
+
+       <button type="submit">Register</button>
+  </form>
 </div>
