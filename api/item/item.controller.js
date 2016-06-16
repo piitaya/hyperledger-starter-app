@@ -36,3 +36,59 @@ exports.get = function(req, res) {
     });
     res.status(200).json(item);
 };
+
+/*
+    Create Item
+    METHOD: POST
+    URL: /api/items
+    Parameters:
+        { name: name }
+    Response:
+        { message: "OK" }
+*/
+exports.create = function(req, res) {
+    var username = req.account.username;
+    var item = new Item(req.body);
+
+    blockchain.chaincode.invoke.createItem([JSON.stringify(item)], username, function(err, data) {
+
+    });
+    res.status(200).json(item);
+};
+
+/*
+    Sell Item
+    METHOD: PUT
+    URL: /api/items/:id/sell
+    Parameters:
+        { price: price }
+    Response:
+        { message: "OK" }
+*/
+exports.sell = function(req, res) {
+    var username = req.account.username;
+    var itemId = req.params.id;
+    var price = req.body.price;
+
+    blockchain.chaincode.invoke.sellItem([itemId, price], username, function(err, data) {
+
+    });
+    res.status(200).json(item);
+};
+
+/*
+    Buy Item
+    METHOD: PUT
+    URL: /api/items/:id/buy
+    Response:
+        { message: "OK" }
+*/
+exports.buy = function(req, res) {
+    var username = req.account.username;
+    var itemId = req.params.id;
+
+    blockchain.chaincode.invoke.buyItem([itemId, price], username, function(err, data) {
+
+    });
+    res.status(200).json(item);
+};

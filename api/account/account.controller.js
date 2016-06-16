@@ -8,7 +8,7 @@ var blockchain = require('../../blockchain');
     METHOD: POST
     URL: /api/account
     Response:
-        { account }
+        { message: "OK" }
 */
 exports.create = function(req, res) {
     var account = new Account({
