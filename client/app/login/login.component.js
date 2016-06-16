@@ -16,8 +16,10 @@
 
 		vm.login = login;
 		vm.register = register;
+		vm.switchMode = switchMode;
+
 		vm.credentials = {};
-		vm.username = undefined;
+		vm.mode = "login";
 
 		activate();
 
@@ -34,11 +36,15 @@
 		}
 
 		function register() {
-			authService.register(vm.username).then(function(data) {
+			authService.register(vm.credentials.username).then(function(data) {
 				console.log("res", data);
 			}).catch(function(err) {
 				console.log("err", err);
 			})
+		}
+
+		function switchMode() {
+			vm.mode = vm.mode == "login" ? "register" : "login";
 		}
 	}
 })();

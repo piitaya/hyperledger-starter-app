@@ -1,3 +1,20 @@
 main {
     height: 100%;
 }
+
+.login-page {
+    min-height: 100%;
+}
+
+.login-page md-card {
+    width: 300px; 
+}
+
+.login-page .login-logo {
+    text-align: center;
+    width: 100%;
+}
+
+.login-page .login-logo img {
+    width: 120px;
+}

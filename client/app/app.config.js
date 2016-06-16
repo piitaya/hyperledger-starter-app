@@ -43,6 +43,11 @@
                 component: 'main',
                 data: {
                     requiresLogin: true
+                },
+                resolve: {
+                    account: function(accountService) {
+                        return accountService.get();
+                    }
                 }
             })
 

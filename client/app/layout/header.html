@@ -3,13 +3,31 @@
         <md-icon>menu</md-icon>
     </md-button>
     <h2>
-        <span>Toolbar with Disabled/Enabled Icon Buttons</span>
+        <span>Hyperledger Starter App</span>
     </h2>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="Favorite">
-        <md-icon style="color: greenyellow;">favorite</md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="More">
-        <md-icon>more_vert</md-icon>
-    </md-button>
+    <md-icon>attach_money</md-icon>
+    <h2>
+        <span>{{vm.account.money}}</span>
+    </h2>
+    <md-menu md-position-mode="target-right target">
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+            <md-icon>more_vert</md-icon>
+        </md-button>
+        <md-menu-content>
+            <md-menu-item>
+                <md-button>
+                    <md-icon>account_circle</md-icon>
+                    {{vm.account.username}}
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button ng-click="vm.logout()">
+                    <md-icon>exit_to_app</md-icon>
+                    Logout
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
 </div>

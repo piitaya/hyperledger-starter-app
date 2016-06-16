@@ -19,11 +19,7 @@
 		activate();
 
 		function activate() {
-			accountService.get().then(function(account) {
-				vm.account = account;
-			}).catch(function(err) {
-				console.log(err);
-			});
+
 		}
 	}
 })();

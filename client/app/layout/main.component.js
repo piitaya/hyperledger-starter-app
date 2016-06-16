@@ -1,12 +1,15 @@
 (function () {
 	'use strict';
-	
+
 	angular
 		.module('app')
 		.component('main', {
             templateUrl: 'app/layout/main.html',
             controller: MainComponent,
-            controllerAs: "vm"
+            controllerAs: "vm",
+			bindings: {
+				account: "="
+			}
         });
 
 	MainComponent.$inject = [];
@@ -17,7 +20,6 @@
 		activate();
 
 		function activate() {
-
 		}
 	}
 })();
