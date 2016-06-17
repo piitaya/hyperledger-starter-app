@@ -61,7 +61,7 @@ exports.buy = function(req, res) {
     var username = req.account.username;
     var thingId = req.params.id;
 
-    blockchain.chaincode.invoke.buyThing([username, thingId, price.toString()], function(err, data) {
+    blockchain.chaincode.invoke.buyThing([username, thingId], function(err, data) {
         if (err) {
             res.status(500).json({message: "Internal Error"});
         }
@@ -74,38 +74,22 @@ exports.buy = function(req, res) {
 /*
     Get ALl Things
     METHOD: GET
-    URL: /api/things
+    URL: /api/things?market=bool&me=bool
     Response:
         { message: "OK" }
 */
 exports.getAll = function(req, res) {
-    var market = false;
+    var market = req.query.market ? true : false;
+    var me = req.query.me ? true : false;
 
-    blockchain.chaincode.query.getThings([market.toString()], function(err, data) {
-        if (err) {
-            res.status(500).json({message: "Internal Error"});
-        }
-        else if (!data || data == "null") {
-            res.status(200).json([]);
-        }
-        else {
-            var things = JSON.parse(data);
-            res.status(200).json(things);
-        }
-    });
-};
+    var username = req.account.username;
 
-/*
-    Get market
-    METHOD: GET
-    URL: /api/things/market
-    Response:
-        { message: "OK" }
-*/
-exports.getMarket = function(req, res) {
-    var market = true;
+    var args = [market.toString()];
+    if (me) {
+        args.push(username);
+    }
 
-    blockchain.chaincode.query.getThings([market.toString()], function(err, data) {
+    blockchain.chaincode.query.getThings(args, function(err, data) {
         if (err) {
             res.status(500).json({message: "Internal Error"});
         }

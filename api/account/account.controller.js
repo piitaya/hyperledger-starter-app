@@ -49,28 +49,3 @@ exports.get = function(req, res) {
         }
     });
 };
-
-/*
-    Get my things
-    METHOD: GET
-    URL: /api/account/things
-    Response:
-        [{ thing }]
-*/
-exports.getThings = function(req, res) {
-    var market = false;
-    var username = req.account.username;
-
-    blockchain.chaincode.query.getThings([market.toString(), username], function(err, data) {
-        if (err) {
-            res.status(500).json({message: "Internal Error"});
-        }
-        else if (!data || data == "null") {
-            res.status(200).json([]);
-        }
-        else {
-            var things = JSON.parse(data);
-            res.status(200).json(things);
-        }
-    });
-};

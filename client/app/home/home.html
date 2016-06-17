@@ -5,3 +5,23 @@
 <md-button class="md-raised md-primary">Primary</md-button>
 <md-button class="md-fab"><md-icon>add</md-icon></md-button>
 <md-button class="md-fab md-primary"><md-icon>add</md-icon></md-button>
+
+<h2>My things</h2>
+<md-list>
+    <md-list-item class="md-2-line" ng-repeat="thing in vm.things">
+        <div class="md-list-item-text" ng-click="vm.sell(thing.id)">
+            <h3>Name: {{ thing.name }}</h3>
+        </div>
+    </md-list-item>
+</md-list>
+
+<h2>Market</h2>
+<md-list>
+    <md-list-item class="md-3-line" ng-repeat="thing in vm.market">
+        <div class="md-list-item-text" ng-click="vm.buy(thing.id)">
+            <h3>Name: {{ thing.name }}</h3>
+            <h4>Price: ${{ thing.price }}</h4>
+            <p>Owner: {{ thing.owner }}</p>
+        </div>
+    </md-list-item>
+</md-list>

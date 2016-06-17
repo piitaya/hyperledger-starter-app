@@ -10,7 +10,7 @@
     /* @ngInject */
     function accountService($http, $q) {
         var service = {
-            create: get,
+            create: create,
             get: get
         };
 

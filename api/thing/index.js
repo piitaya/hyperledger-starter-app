@@ -8,7 +8,6 @@ var router = express.Router();
 router.post('/', auth.verify, controller.create);
 router.put('/:id/sell', auth.verify, controller.sell);
 router.put('/:id/buy', auth.verify, controller.buy);
-router.get('/', controller.getAll);
-router.get('/market', controller.getMarket);
+router.get('/', auth.verify, controller.getAll);
 
 module.exports = router;
