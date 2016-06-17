@@ -35,7 +35,7 @@ app.listen(app.get('port'), () => {
 var router = express.Router();
 app.use('/api', router);
 
-router.use('/items', require('./api/item'));
+router.use('/things', require('./api/thing'));
 router.use('/auth', require('./api/auth'));
 router.use('/account', require('./api/account'));
 
