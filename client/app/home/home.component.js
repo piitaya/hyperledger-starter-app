@@ -6,7 +6,10 @@
 		.component('home', {
 			templateUrl: 'app/home/home.html',
 			controller: HomeComponent,
-			controllerAs: "vm"
+			controllerAs: "vm",
+			bindings: {
+				account: "="
+			}
 		});
 
 	HomeComponent.$inject = ['thingService'];
@@ -15,31 +18,21 @@
 		var vm = this;
 
 		vm.things = [];
-		vm.market = [];
 
-		vm.sell = sell;
 		vm.buy = buy;
 
 		activate();
 
 		function activate() {
-			thingService.getPersonalThings().then(function(things) {
+			thingService.getMarket().then(function(things) {
 				vm.things = things;
 			});
-			thingService.getMarket().then(function(things) {
-				vm.market = things;
-			});
 		}
 
-		function sell(id) {
-			thingService.sell(id, 300).then(function() {
-				console.log("sold !")
-			});
-		}
-
-		function buy(id) {
-			thingService.buy(id).then(function() {
-				console.log("bought !")
+		function buy(thing) {
+			thingService.buy(thing.id).then(function() {
+				vm.account.money -= thing.price;
+				vm.things.splice([vm.things.indexOf(thing)],1);
 			});
 		}
 	}

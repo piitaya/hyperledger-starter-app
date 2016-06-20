@@ -1,5 +1,5 @@
-<form ng-submit="vm.create()">
-    <md-input-container class="md-block">
+<form ng-submit="vm.create()" layout="row" layout-align="start start">
+    <md-input-container class="md-block" flex>
         <label>Name</label>
         <input type="text" ng-model="vm.thing.name" required>
     </md-input-container>

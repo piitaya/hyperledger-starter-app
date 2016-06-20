@@ -21,7 +21,7 @@ exports.create = function(req, res) {
             res.status(500).json({message: "Internal Error"});
         }
         else {
-            res.status(200).json({message: "OK"});
+            res.status(200).json(account);
         }
     });
 };

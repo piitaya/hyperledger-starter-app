@@ -16,12 +16,17 @@ exports.create = function(req, res) {
     var username = req.account.username;
     var thing = new Thing(req.body);
 
+
     blockchain.chaincode.invoke.createThing([username, JSON.stringify(thing)], function(err, data) {
         if (err) {
             res.status(500).json({message: "Internal Error"});
         }
         else {
-            res.status(200).json({message: "OK"});
+            // This is just for the response
+            thing.username = req.account.username;
+            thing.price = 0;
+            thing.inMarket = false;
+            res.status(200).json(thing);
         }
     });
 };

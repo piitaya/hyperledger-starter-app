@@ -1,23 +1,25 @@
-<md-card>
-    <md-card-content>
-        <new></new>
-    </md-card-content>
-</md-card>
-<md-card>
-    <md-list>
-        <md-subheader class="md-no-sticky" style="background: none;"><h2>My things</h2></md-subheader>
-        <md-list-item class="md-2-line" ng-repeat="thing in vm.things">
-            <div class="md-list-item-text" ng-click="vm.sell(thing.id)">
-                <h3>Name: {{ thing.name }}</h3>
-            </div>
-        </md-list-item>
-        <md-subheader class="md-no-sticky" style="background: none;"><h2>Market</h2></md-subheader>
-        <md-list-item class="md-3-line" ng-repeat="thing in vm.market">
-            <div class="md-list-item-text" ng-click="vm.buy(thing.id)">
-                <h3>Name: {{ thing.name }}</h3>
-                <h4>Price: ${{ thing.price }}</h4>
-                <p>Owner: {{ thing.owner }}</p>
-            </div>
-        </md-list-item>
-    </md-list>
-</md-card>
+<div class="container">
+    <md-card>
+        <md-card-header>
+            <md-card-avatar>
+                <img src="img/logo.svg"/>
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title">Market</span>
+                <span class="md-subhead">{{market.length}} things in the market</span>
+            </md-card-header-text>
+        </md-card-header>
+        </md-list>
+            <md-list-item class="md-2-line" ng-repeat="thing in market = (vm.things | filter:{inMarket:true})">
+                <md-icon class="md-avatar-icon">home</md-icon>
+                <div class="md-list-item-text">
+                    <h3>{{thing.name}} (sold by {{vm.account.username != thing.owner ? thing.owner : "you"}})</h3>
+                    <p>${{thing.price}}</p>
+                </div>
+                <md-button ng-if="vm.account.username != thing.owner" class="md-secondary md-icon-button" ng-click="vm.buy(thing)">
+                    <md-icon>add_shopping_cart</md-icon>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-card>
+</div>

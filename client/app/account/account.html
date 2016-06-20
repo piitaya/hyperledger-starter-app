@@ -1,0 +1,50 @@
+<div class="container">
+    <div layout="row" layout-align="start start">
+        <md-card flex>
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="img/logo.svg"/>
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">My market</span>
+                    <span class="md-subhead">{{market.length}} things in the market</span>
+                </md-card-header-text>
+            </md-card-header>
+            </md-list>
+                <md-list-item class="md-2-line" ng-repeat="thing in market = (vm.things | filter:{inMarket:true})">
+                    <md-icon class="md-avatar-icon">home</md-icon>
+                    <div class="md-list-item-text">
+                        <h3>{{thing.name}}</h3>
+                        <p>${{thing.price}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-card>
+        <md-card flex>
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="img/logo.svg"/>
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">My wallet</span>
+                    <span class="md-subhead">{{wallet.length}} things in the wallet</span>
+                </md-card-header-text>
+            </md-card-header>
+            </md-list>
+                <md-list-item class="md-2-line" ng-repeat="thing in wallet = (vm.things | filter:{inMarket:false})">
+                    <md-icon class="md-avatar-icon">home</md-icon>
+                    <div class="md-list-item-text">
+                        <h3>{{thing.name}}</h3>
+                        <p ng-if="thing.price">${{thing.price}}</p>
+                    </div>
+                    <md-button class="md-secondary md-icon-button" ng-click="vm.sell(thing, 300)">
+                        <md-icon>shopping_cart</md-icon>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+</div>
+<md-button class="md-accent md-fab md-fab-bottom-right" ng-click="vm.create()">
+    <md-icon>add</md-icon>
+</md-button>

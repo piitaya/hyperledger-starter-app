@@ -1,6 +1,6 @@
 <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Settings">
-        <md-icon>menu</md-icon>
+    <md-button class="md-icon-button" ui-sref="main.home">
+        <md-icon>home</md-icon>
     </md-button>
     <h2>
         <span>Hyperledger Starter App</span>
@@ -16,7 +16,7 @@
         </md-button>
         <md-menu-content>
             <md-menu-item>
-                <md-button>
+                <md-button ui-sref="main.account">
                     <md-icon>account_circle</md-icon>
                     {{vm.account.username}}
                 </md-button>

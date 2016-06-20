@@ -28,3 +28,9 @@ main {
     font-size: 12pt;
     text-decoration: none;
 }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}

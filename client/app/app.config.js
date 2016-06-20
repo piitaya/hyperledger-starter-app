@@ -57,6 +57,14 @@
                 data: {
                     title: "Home"
                 }
+            })
+
+            .state('main.account', {
+                url: '/account',
+                component: 'account',
+                data: {
+                    title: "Account"
+                }
             });
     }
 

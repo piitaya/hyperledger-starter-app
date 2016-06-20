@@ -5,7 +5,7 @@ var shortid =  require('shortid');
 /*
     {
         "name"                  :   String,
-        "price"                 :   Integer
+        "money"                 :   Integer
     }
 */
 function Account(account) {
