@@ -8,7 +8,8 @@
 			controller: HomeComponent,
 			controllerAs: "vm",
 			bindings: {
-				account: "="
+				account: "=",
+				things: "="
 			}
 		});
 
@@ -17,16 +18,12 @@
 	function HomeComponent(thingService) {
 		var vm = this;
 
-		vm.things = [];
-
 		vm.buy = buy;
 
 		activate();
 
 		function activate() {
-			thingService.getMarket().then(function(things) {
-				vm.things = things;
-			});
+			vm.things = vm.things  || [];
 		}
 
 		function buy(thing) {

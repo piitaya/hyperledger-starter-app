@@ -40,6 +40,7 @@
 			authService.register(vm.credentials.username).then(function(data) {
 				console.log("res", data);
 				vm.mode = "login";
+				vm.password = data.password;
 			}).catch(function(err) {
 				console.log("err", err);
 			})

@@ -56,6 +56,11 @@
                 component: 'home',
                 data: {
                     title: "Home"
+                },
+                resolve: {
+                    things: function(thingService) {
+                        return thingService.getMarket();
+                    }
                 }
             })
 
@@ -64,6 +69,11 @@
                 component: 'account',
                 data: {
                     title: "Account"
+                },
+                resolve: {
+                    things: function(thingService) {
+                        return thingService.getPersonalThings();
+                    }
                 }
             });
     }

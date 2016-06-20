@@ -38,8 +38,20 @@
                 method: 'GET',
                 url: '/api/account'
             }).then(function(response) {
+                // Auto Initialize account if not exists
+                if (response.status == 204) {
+                    return $http({
+                        method: 'POST',
+                        url: '/api/account'
+                    });
+                }
+                else {
+                    deferred.resolve(response.data);
+                    return deferred.promise;
+                }
+            }).then(function(response) {
                 deferred.resolve(response.data);
-            }, function(err) {
+            }).catch(function(err) {
                 deferred.reject(err);
             });
 

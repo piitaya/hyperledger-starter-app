@@ -6,7 +6,11 @@
 		.component('account', {
 			templateUrl: 'app/account/account.html',
 			controller: AccountComponent,
-			controllerAs: "vm"
+			controllerAs: "vm",
+			bindings: {
+				account: "=",
+				things: "="
+			}
 		});
 
 	AccountComponent.$inject = ['thingService', '$mdDialog'];
@@ -14,17 +18,13 @@
 	function AccountComponent(thingService, $mdDialog) {
 		var vm = this;
 
-		vm.things = [];
-
 		vm.create = create;
         vm.sell = sell;
 
 		activate();
 
 		function activate() {
-			thingService.getPersonalThings().then(function(things) {
-				vm.things = things;
-			});
+
 		}
 
 		function create() {
