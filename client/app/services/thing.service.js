@@ -19,8 +19,20 @@
 
         return service;
 
-        function create() {
+        function create(thing) {
+            var deferred = $q.defer();
 
+            $http({
+                method: 'POST',
+                url: '/api/things',
+                data: thing
+            }).then(function(response) {
+                deferred.resolve(response.data);
+            }, function(err) {
+                deferred.reject(err);
+            });
+
+            return deferred.promise;
         }
 
         function getMarket() {
